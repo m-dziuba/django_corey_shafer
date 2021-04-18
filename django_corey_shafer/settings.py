@@ -21,12 +21,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-3@u6&jfb_j@m7x#h7s0)a4f%_3$xt3itfa)*^_yh)%3p98q#d='
-
+# SECRET_KEY = 'django-insecure-3@u6&jfb_j@m7x#h7s0)a4f%_3$xt3itfa)*^_yh)%3p98q#d='
+SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-
+ALLOWED_HOSTS = ['https://matdzapp.herokuapp.com']
 # Application definition
 
 INSTALLED_APPS = [
@@ -56,8 +56,7 @@ ROOT_URLCONF = 'django_corey_shafer.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates']
-        ,
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
